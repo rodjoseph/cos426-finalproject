@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Playing with Animation</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #15e;
+				color: #fff;
+				margin: 0px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button onclick="game.stopAnimation.call(game);">Stop All Animations</button>
+		<label for="animation1">Choose an animation (1):</label>
+		<select id="animation1" onChange="selectAnimation()">
+			<option value="0">Waving</option>
+			<option value="1">Walking</option>
+		</select>
+		<label for="animation2">Choose an animation (2):</label>
+		<select id="animation2" onChange="selectAnimation()">
+			<option value="0">Waving</option>
+			<option value="1">Walking</option>
+		</select>
+		
+        <button onclick="game.playAnimation.call(game, 0);">Play animation 1</button>
+        <button onclick="game.playAnimation.call(game, 1);">Play animation 2</button>
+        <button onclick="game.blendAnimations.call(game, 0.5);">Blend animations</button>
+        <input type="range" min="0" max="1" step="0.05"  onchange="game.blendAnimations.call(game, this.value)" />
+        
+		<script src="../libs/three.min.js"></script>
+
+		<script src="../libs/inflate.min.js"></script>
+		<script src="../libs/FBXLoader.js"></script>
+
+		<script src="../libs/OrbitControls.js"></script>
+
+		<script src="game.js"></script>
+        
+        <script>
+            var game;
+            
+            document.addEventListener("DOMContentLoaded", function(){
+                game = new Game(); 
+				window.game = game;
+				function selectAnimation(){
+					hideAll();
+					var val1 = document.getElementById("animation1").value;
+					var val2 = document.getElementById("animation2").value;
+					if(val1 == "0")
+					game.playAnimation.call(game, 0);
+					else if(val1 == "1")
+					game.playAnimation.call(game, 1);
+				}	
+			});
+			
+			
+        </script>
+
+	</body>
+</html>
