@@ -48,7 +48,7 @@ class Game{
         // model
         const self = this;
         const loader = new THREE.FBXLoader();
-        loader.load( 'Robot.fbx', function ( object ) {
+        loader.load( './resources/Robot.fbx', function ( object ) {
 
             self.mixer = new THREE.AnimationMixer( object );
             self.actions = [];
@@ -88,7 +88,7 @@ class Game{
         const anim = this.animations.pop();
         const self = this;
         
-        loader.load( `${anim}.fbx`, function ( object ) {
+        loader.load( `./resources/${anim}.fbx`, function ( object ) {
 
             const action = self.mixer.clipAction( object.animations[ 0 ] );
             self.actions.push(action);
