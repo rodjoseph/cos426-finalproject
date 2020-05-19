@@ -48,7 +48,7 @@ class Game{
         // model
         const self = this;
         const loader = new THREE.FBXLoader();
-        loader.load( './Robot.fbx', function ( object ) {
+        loader.load( 'Robot.fbx', function ( object ) {
 
             self.mixer = new THREE.AnimationMixer( object );
             self.actions = [];
