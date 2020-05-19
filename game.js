@@ -1,8 +1,9 @@
+// Adapted from 
 class Game{
     constructor(){
         this.clock = new THREE.Clock();
 
-        this.animations = ["Walking", "ThirdPersonWalk"]; 
+        this.animations = ["RegularWalk"]; 
         
 		this.init();
     }
@@ -47,7 +48,7 @@ class Game{
         // model
         const self = this;
         const loader = new THREE.FBXLoader();
-        loader.load( 'SK_Mannequin2.fbx', function ( object ) {
+        loader.load( 'Robot.fbx', function ( object ) {
 
             self.mixer = new THREE.AnimationMixer( object );
             self.actions = [];
@@ -64,15 +65,6 @@ class Game{
 
             } );
 
-            // change if texture needed
-            /*
-            const tloader = new THREE.TextureLoader();
-            tloader.load("FireFighter.png", function(texture){
-                object.traverse( function ( child ) {
-                    if ( child.isMesh ) child.material.map = texture;
-                });
-            });
-            */
             self.scene.add( object );
 
             self.loadNextAnim(loader);
