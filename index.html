@@ -17,28 +17,13 @@
 	</head>
 
 	<body>
-		<button onclick="game.playAnimation.call(game, 0);">Play animation 1 </button>
-		<button onclick="game.playAnimation.call(game, 1);">Play animation 2 </button>
-		<button onclick="game.playAnimation.call(game, 2);">Play animation 3 </button>
-		<button onclick="game.stopAnimation.call(game);">Stop All Animations</button>
-		<label for="animation1">Choose an animation (1):</label>
-		<select id="animation1" onChange="game.blendAnimations.call(game, animation1.value, animation2.value, this.value)">
-			<option value="0">Nothing</option>
-			<option value="1">Walk 1</option>
-			<option value="2">Walk 2</option>
-			<option value="3">Walk 3</option>
-		</select>
-		
 
+        <button onclick="game.stopAnimation.call(game);">Stop All Animations</button>
+        <button onclick="game.playAnimation.call(game, 0);">Play animation 1 (walk)</button>
+        <button onclick="game.playAnimation.call(game, 1);">Play animation 2 (run)</button>
         <button onclick="game.blendAnimations.call(game, 0.5);">Blend animations</button>
-        <input type="range" min="0" max="1" step="0.05"  onchange="game.blendAnimations.call(game, animation1.value, animation2.value, this.value)" />
-		<label for="animation2">Choose an animation (2):</label>
-		<select id="animation2" onChange="game.blendAnimations.call(game, animation1.value, animation2.value, this.value)">
-			<option value="0">Nothing</option>
-			<option value="1">Walk 1</option>
-			<option value="2">Walk 2</option>
-			<option value="3">Walk 3</option>
-		</select>
+		<input type="range" min="0" max="1" step="0.05"  onchange="game.blendAnimations.call(game, this.value)" />
+		
 		<script src="./libs/three.min.js"></script>
 
 		<script src="./libs/inflate.min.js"></script>

@@ -3,7 +3,7 @@ class Game{
     constructor(){
         this.clock = new THREE.Clock();
 
-        this.animations = ["RegularWalk"]; 
+        this.animations = ["Walk2", "Run"]; 
         
 		this.init();
     }
@@ -21,12 +21,12 @@ class Game{
         this.scene.background = new THREE.Color( 0xa0a0a0 );
         this.scene.fog = new THREE.Fog( 0xa0a0a0, 1000, 2000 );
 
-        let light = new THREE.HemisphereLight( 0xffffff, 0x444444 );
+        let light = new THREE.HemisphereLight( 0xffffff, 0x222222 );
         light.position.set( 0, 200, 0 );
         this.scene.add( light );
 
         light = new THREE.DirectionalLight( 0xffffff );
-        light.position.set( 0, 200, 100 );
+        light.position.set( 0, 400, 100 );
         light.castShadow = true;
         light.shadow.camera.top = 180;
         light.shadow.camera.bottom = - 100;
